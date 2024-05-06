@@ -18,7 +18,8 @@
 |13 | Nginx | 1.15.3
 
 ## 目录结构
-![image](https://github.com/univspeed/sprbot-freedom/assets/23521638/1ae1f8f5-8fec-4cbf-a284-0dbfab1bdd6c)
+![image](https://github.com/univspeed/sprbot-freedom/assets/23521638/3b5464dc-435a-49bf-a754-e2b88dbb0dba)
+
 
 
 ## 权限校验
