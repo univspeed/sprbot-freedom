@@ -1,0 +1,244 @@
+spring:
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+      enabled: true
+  profiles:
+    active: dev
+  application:
+    name: sprbotfreedom
+  datasource:
+    druid:
+      db1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.16.245:14001/scs_template?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+        username: root
+        password: Abcd123
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow: true
+      db2:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.16.245:14001/scs_template?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+        username: root
+        password: Abcd123
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow:
+                true
+      db3:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.16.245:14001/scs_template?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+        username: root
+        password: Abcd123
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow:
+                true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      # username:
+      # password:
+      database: scs
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+      # password: pw123456
+  mail:
+    host: smtp.163.com
+    username: liuyutangabc@163.com
+    password: GUPREONCUMAZVJHD
+    default-encoding: UTF-8
+mybatis:
+  type-aliases-package: com.cybercloud.sprbotfreedom.*.**.dao.**.*
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: /mappers/**/*.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    interceptor-configs:
+      - config-id: pagination
+        interceptor-class: com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
+  global-config:
+    enable-sql-runner: true
+logging:
+  level:
+    root: INFO
+    com.cybercloud.sprbotfreedom.web.dao: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  thumb-image:
+    height: 150
+    width: 150
+  tracker-list:
+    - localhost:22122
+  web-server-url: http://localhost:9000/scs
+server:
+  port: ${HOST_PORT:9000}
+  servlet:
+    context-path: /scs
+  undertow:
+    # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作
+    # 如果每次需要 ByteBuffer 的时候都去申请，对于堆内存的 ByteBuffer 需要走 JVM 内存分配流程（TLAB -> 堆），对于直接内存则需要走系统调用，这样效率是很低下的。
+    # 所以，一般都会引入内存池。在这里就是 `BufferPool`。
+    # 目前，UnderTow 中只有一种 `DefaultByteBufferPool`，其他的实现目前没有用。
+    # 这个 DefaultByteBufferPool 相对于 netty 的 ByteBufArena 来说，非常简单，类似于 JVM TLAB 的机制
+    # 对于 bufferSize，最好和你系统的 TCP Socket Buffer 配置一样
+    # `/proc/sys/net/ipv4/tcp_rmem` (对于读取)
+    # `/proc/sys/net/ipv4/tcp_wmem` (对于写入)
+    # 在内存大于 128 MB 时，bufferSize 为 16 KB 减去 20 字节，这 20 字节用于协议头
+    buffer-size: 16364
+    # 是否分配的直接内存(NIO直接分配的堆外内存)，这里开启，所以java启动参数需要配置下直接内存大小，减少不必要的GC
+    # 在内存大于 128 MB 时，默认就是使用直接内存的
+    directBuffers: true
+    threads:
+      # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个读线程和一个写线程
+      io: 4
+      # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
+      # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+      worker: 128
+    # http post body 大小，默认为 -1B ，即不限制
+    max-http-post-size: -1B
+    # 是否在启动时创建 filter，默认为 true，不用修改
+    eager-filter-init: true
+    # 限制路径参数数量，默认为 1000
+    max-parameters: 1000
+    # 限制 http header 数量，默认为 200
+    max-headers: 200
+    # 限制 http header 中 cookies 的键值对数量，默认为 200
+    max-cookies: 200
+    # 是否允许 URL 解码，默认为 true，除了 %2F 其他的都会处理
+    decode-url: true
+    # url 字符编码集，默认是 utf-8
+    url-charset: utf-8
+    # 响应的 http header 是否会加上 'Connection: keep-alive'，默认为 true
+    always-set-keep-alive: true
+    # 请求超时，默认是不超时，我们的微服务因为可能有长时间的定时任务，所以不做服务端超时，都用客户端超时，所以我们保持这个默认配置
+    no-request-timeout: -1
+    # 是否在跳转的时候保持 path，默认是关闭的，一般不用配置
+    preserve-path-on-forward: false
+    options:
+      # spring boot 没有抽象的 xnio 相关配置在这里配置，对应 org.xnio.Options 类
+      socket:
+        SSL_ENABLED: false
+      # spring boot 没有抽象的 undertow 相关配置在这里配置，对应 io.undertow.UndertowOptions 类
+      server:
+        ALLOW_UNKNOWN_PROTOCOLS: false
+system:
+  # 认证检查
+  auth-check:
+    open-auth-check: false
+    auth-white-list: ${server.servlet.context-path}/api/v1/captcha/*,${server.servlet.context-path}/api/v1/idempotent/*,${server.servlet.context-path}/api/v1/login,${server.servlet.context-path}/api/v1/logout
+    auth-deny-token-list:
+  # xss攻击检查
+  xss-check:
+    open-xss-check: false
+    xss-white-list:
+  # host地址检查
+  host-check:
+    open-host-check: false
+    host-white-list: 127.0.0.1
+  # 验证码
+  captcha:
+    open-captcha-check: false
+    captcha-timeout: 60
+    key: captcha
+  # 幂等检查
+  idempotent-check:
+    timeout: 10
+    open-idemptoken-check: false
+    token-aes-secret: IfnW@@tgsSDvdsAD3400fdsJFjefnccS
+    header: Idempotent
+    idemp-white-list: ${server.servlet.context-path}/api/v1/idempotent/*
+  # 资源权限
+  resource-permission:
+    open-permission-check: false
+    resouce-white-list:
+  # 接口权限
+  interface-permission:
+    open-permission-check: false
+    # interface-white-list: ${server.servlet.context-path}/api/v1/captcha/*,${server.servlet.context-path}/api/v1/idempotent/*,${server.servlet.context-path}/api/v1/login,${server.servlet.context-path}/api/v1/logout
+    interface-white-list: ${server.servlet.context-path}/api/v1/idempotent/*
+  # Jwt认证配置
+  token:
+    header: authorization
+    expire-time: 3600
+    secret: scs_token
+    open-check: true
+  netty:
+    enabled: false
+    port:
+  # 附件上传方式 fastDFS or local
+  file-system-type: fastDFS
+  # 日志出街输出
+  log:
+    print-function-enable: false
+    print-function-level: info
+  # 雪花算法生成器
+  idgen:
+    work-id: 1
+    datacenter-id: 1
+    sequence: 1
+  sm2:
+    encrypt-private-key: 7163a8b8694cc9efb2a703b2815d96498f029dc73f49802edf63b4f8016169c1
+    encrypt-public-key: 025c508eb2286db6c61be377b19598c8650752a60abd7be36492821555d68c94e7

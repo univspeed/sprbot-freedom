@@ -1,0 +1,173 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  profiles:
+    active: dev
+  application:
+    name: cmw
+  datasource:
+    druid:
+      center:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://39.99.183.149:1433/cmw?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true
+        username: root
+        password: liuyutang666666
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow: true
+      ccms:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://39.99.183.149:1433/cms?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true
+        username: root
+        password: liuyutang666666
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow: true
+      edge:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://39.99.183.149:1433/edge?useUnicode=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false&useInformationSchema=true
+        username: root
+        password: liuyutang666666
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        filter:
+          stat:
+            log-slow-sql: true
+            slow-sql-millis: 1000
+            merge-sql: false
+          wall:
+            config:
+              multi-statement-allow: true
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/cmw
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+    # password: pw123456
+  mail:
+    host: smtp.163.com
+    username: liuyutangabc@163.com
+    password: GUPREONCUMAZVJHD
+    default-encoding: UTF-8
+mybatis:
+  type-aliases-package: com.cybercloud.cmw.*.**.dao.**.*
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: /mappers/**/*.xml
+logging:
+  level:
+    root: INFO
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  thumb-image:
+    height: 150
+    width: 150
+  tracker-list:
+    - localhost:22122
+  web-server-url: http://localhost:9000/cmw
+server:
+  port: ${HOST_PORT:9000}
+  servlet:
+    context-path: /cmw
+system:
+  # 认证检查
+  auth-check:
+    open-auth-check: false
+    auth-white-list: ${server.servlet.context-path}/captcha/*,${server.servlet.context-path}/idempotent/*,${server.servlet.context-path}/login,${server.servlet.context-path}/logout
+    auth-deny-token-list:
+  # xss攻击检查
+  xss-check:
+    open-xss-check: false
+    xss-white-list:
+  # host地址检查
+  host-check:
+    open-host-check: false
+    host-white-list: 39.99.183.149,127.0.0.1
+  # 验证码
+  captcha:
+    open-captcha-check: false
+    captcha-timeout: 60
+  # 幂等检查
+  idempotent-check:
+    timeout: 5000
+    open-idemptoken-check: false
+    token-aes-secret: IfnW@@tgsSDvdsAD123400fdsJFjefnccS
+    header: Idempotent_token
+    idemp-white-list: ${server.servlet.context-path}/idempotent/*
+  # 资源权限
+  resource-permission:
+    open-permission-check: false
+    resouce-white-list:
+  # 接口权限
+  interface-permission:
+    open-permission-check: false
+    interface-white-list: ${server.servlet.context-path}/captcha/*,${server.servlet.context-path}/idempotent/*,${server.servlet.context-path}/login,${server.servlet.context-path}/logout
+  # Jwt认证配置
+  token:
+    header: authorization
+    expire-time: 3600
+    secret: cybercloud_token
+    open-check: true
+  # 附件上传方式 fastDFS or local
+  file-system-type: fastDFS
+  # 日志出街输出
+  log:
+    print-function-enable: false
+    print-function-level: info
+  # 雪花算法生成器
+  idgen:
+    work-id: 1
+    datacenter-id: 1
+    sequence: 1
+  sm2:
+    encrypt-private-key: 7163a8b8694cc9efb2a703b2815d96498f029dc73f49802edf63b4f8016169c1
+    encrypt-public-key: 025c508eb2286db6c61be377b19598c8650752a60abd7be36492821555d68c94e7

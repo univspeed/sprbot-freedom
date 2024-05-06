@@ -1,0 +1,12 @@
+version : '3'
+services:
+  smart-city-server:
+    container_name: sprbot-freedom
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./home/project/config:/config
+      - ./home/project/logs:/logs
+    # depends_on:
+    # links:
