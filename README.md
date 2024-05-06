@@ -18,7 +18,8 @@
 |13 | Nginx | 1.15.3
 
 ## 目录结构
-![image](https://github.com/univspeed/sprbot-freedom/assets/23521638/84b25c8f-c1e3-4ecc-96d5-7b90efe92fc1)
+![image](https://github.com/univspeed/sprbot-freedom/assets/23521638/1ae1f8f5-8fec-4cbf-a284-0dbfab1bdd6c)
+
 
 ## 权限校验
 权限校验分为数据权限校验以及功能权限校验，权限通过前端进行配置，内容涵盖了接口、按钮、tab页、菜单权限，并与角色进行绑定，用户进行多角色关联，登陆后即可通过pipeline中的interfacePermFilterHandler和ResourcePermFilterHandler进行校验，完整流程如下所示：
