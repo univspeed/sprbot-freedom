@@ -320,7 +320,19 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserEntity, SysUserDA
 
 }
 ```
-
+### SysUserDAO.java
+```
+/**
+ * 操作员数据接口
+ * @author liuyutang
+ * @date 2023/7/11
+ */
+@Mapper
+@Repository
+@DB1DataSource
+public interface SysUserDAO extends BaseMapper<SysUserEntity> {
+}
+```
 
 
 ## 部署
