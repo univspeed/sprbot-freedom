@@ -1,12 +1,12 @@
-package com.cybercloud.sprbotfreedom.platform.datasource;
+package com.cybercloud.sprbotfreedom.platform.datasource.annotation;
 
 import java.lang.annotation.*;
 
 /**
- * 分前端数据源
+ * 数据源3
  * @author liuyutang
  */
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface DB3DataSource {

@@ -8,7 +8,7 @@ import com.cybercloud.sprbotfreedom.platform.annotation.log.PrintFunctionLog;
 import com.cybercloud.sprbotfreedom.platform.base.entity.PageResult;
 import com.cybercloud.sprbotfreedom.platform.base.service.impl.BaseServiceImpl;
 import com.cybercloud.sprbotfreedom.platform.constants.login.LoginConstants;
-import com.cybercloud.sprbotfreedom.platform.datasource.DB1DataSource;
+import com.cybercloud.sprbotfreedom.platform.datasource.annotation.DB1DataSource;
 import com.cybercloud.sprbotfreedom.platform.enums.SystemErrorCode;
 import com.cybercloud.sprbotfreedom.platform.exception.ServiceException;
 import com.cybercloud.sprbotfreedom.platform.util.DateUtil;

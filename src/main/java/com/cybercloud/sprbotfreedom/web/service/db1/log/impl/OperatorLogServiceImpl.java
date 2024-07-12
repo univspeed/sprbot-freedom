@@ -3,7 +3,7 @@ package com.cybercloud.sprbotfreedom.web.service.db1.log.impl;
 import com.cybercloud.sprbotfreedom.platform.annotation.log.PrintFunctionLog;
 import com.cybercloud.sprbotfreedom.platform.base.entity.PageResult;
 import com.cybercloud.sprbotfreedom.platform.base.service.impl.BaseServiceImpl;
-import com.cybercloud.sprbotfreedom.platform.datasource.DB1DataSource;
+import com.cybercloud.sprbotfreedom.platform.datasource.annotation.DB1DataSource;
 import com.cybercloud.sprbotfreedom.platform.mongodb.MongoPage;
 import com.cybercloud.sprbotfreedom.platform.util.DateUtil;
 import com.cybercloud.sprbotfreedom.platform.util.genid.IdWorker;

@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * 操作员持久层对象
  * @author liuyutang
@@ -19,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_sys_user")
-public class SysUserEntity extends BaseEntity {
+public class SysUserEntity extends BaseEntity implements Serializable {
 
     /**
      * 用户名，不能重复

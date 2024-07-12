@@ -4,13 +4,15 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.cybercloud.sprbotfreedom.platform.base.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author liuyutang
  * @date 2023/7/12
  */
 @Data
 @TableName("resource")
-public class SysResourceEntity extends BaseEntity {
+public class SysResourceEntity extends BaseEntity implements Serializable {
     /**
      * 资源编码
      */

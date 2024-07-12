@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 
 /**
  * 角色数据持久层实体
@@ -18,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("role")
-public class SysRoleEntity extends BaseEntity {
+public class SysRoleEntity extends BaseEntity implements Serializable {
     /**
      * 角色名称
      */

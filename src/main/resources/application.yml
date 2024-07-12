@@ -113,10 +113,15 @@ mybatis:
   mapper-locations: /mappers/**/*.xml
 mybatis-plus:
   configuration:
+    # 指定日志输出
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 指定分页插件
     interceptor-configs:
       - config-id: pagination
         interceptor-class: com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
+    # 开启二级缓存
+    cache-enabled: true
+  # 打印sql
   global-config:
     enable-sql-runner: true
 logging:

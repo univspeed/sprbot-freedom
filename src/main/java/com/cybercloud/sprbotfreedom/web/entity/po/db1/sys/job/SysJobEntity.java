@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.cybercloud.sprbotfreedom.platform.base.entity.BaseEntity;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 定时任务数据实体
  * @author liuyutang
@@ -11,7 +13,7 @@ import lombok.Data;
  */
 @Data
 @TableName("t_sys_job")
-public class SysJobEntity extends BaseEntity {
+public class SysJobEntity extends BaseEntity implements Serializable {
     /** 类名称 */
     private String beanName;
     /** 方法名称 */

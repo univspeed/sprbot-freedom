@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cybercloud.sprbotfreedom.platform.annotation.log.PrintFunctionLog;
 import com.cybercloud.sprbotfreedom.platform.base.entity.PageResult;
 import com.cybercloud.sprbotfreedom.platform.base.service.impl.BaseServiceImpl;
-import com.cybercloud.sprbotfreedom.platform.datasource.DB1DataSource;
+import com.cybercloud.sprbotfreedom.platform.datasource.annotation.DB1DataSource;
 import com.cybercloud.sprbotfreedom.platform.util.BeanUtil;
 import com.cybercloud.sprbotfreedom.web.dao.db1.sys.role.RoleDAO;
 import com.cybercloud.sprbotfreedom.web.entity.po.db1.sys.role.SysRoleEntity;

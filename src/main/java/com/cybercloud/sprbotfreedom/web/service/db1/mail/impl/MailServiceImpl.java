@@ -1,7 +1,7 @@
 package com.cybercloud.sprbotfreedom.web.service.db1.mail.impl;
 
 import com.cybercloud.sprbotfreedom.platform.annotation.log.PrintFunctionLog;
-import com.cybercloud.sprbotfreedom.platform.datasource.DB1DataSource;
+import com.cybercloud.sprbotfreedom.platform.datasource.annotation.DB1DataSource;
 import com.cybercloud.sprbotfreedom.web.service.db1.mail.MailService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

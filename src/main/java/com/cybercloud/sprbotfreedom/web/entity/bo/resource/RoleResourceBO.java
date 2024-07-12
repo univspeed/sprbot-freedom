@@ -2,6 +2,7 @@ package com.cybercloud.sprbotfreedom.web.entity.bo.resource;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Set;
  * @date 2023/7/12
  */
 @Data
-public class RoleResourceBO {
+public class RoleResourceBO implements Serializable {
     /**
      * 角色ID
      */

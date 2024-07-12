@@ -2,7 +2,7 @@ package com.cybercloud.sprbotfreedom.web.service.db1.file.impl;
 
 import com.cybercloud.sprbotfreedom.platform.annotation.log.PrintFunctionLog;
 import com.cybercloud.sprbotfreedom.platform.base.service.impl.BaseServiceImpl;
-import com.cybercloud.sprbotfreedom.platform.datasource.DB1DataSource;
+import com.cybercloud.sprbotfreedom.platform.datasource.annotation.DB1DataSource;
 import com.cybercloud.sprbotfreedom.platform.enums.aspect.PrintLevel;
 import com.cybercloud.sprbotfreedom.platform.enums.aspect.PrintLevelRetention;
 import com.cybercloud.sprbotfreedom.web.dao.db1.file.FileAccessoryDAO;

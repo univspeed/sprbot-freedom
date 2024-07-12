@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * 角色资源关联数据实体
  * @author liuyutang
@@ -17,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("t_sys_role_resource")
-public class SysRoleResourceEntity extends BaseEntity {
+public class SysRoleResourceEntity extends BaseEntity implements Serializable {
     /**
      * 资源id
      */

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * 用户在线信息数据模型
  * @author liuyutang
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserOnlineBO {
+public class UserOnlineBO implements Serializable {
     /** 用户ID */
     public String userId;
     /**  直播房间ID */

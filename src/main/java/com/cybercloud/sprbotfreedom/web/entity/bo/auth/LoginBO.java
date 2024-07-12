@@ -2,13 +2,15 @@ package com.cybercloud.sprbotfreedom.web.entity.bo.auth;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 登录信息业务数据载体
  * @author liuyutang
  * @date 2023/7/12
  */
 @Data
-public class LoginBO {
+public class LoginBO  implements Serializable {
     /**
      * 用户名
      */
