@@ -39,6 +39,10 @@
 
                 try {
                     await axios.post('http://127.0.0.1:9000/scs/api/v1/file/upload_seed', formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            'Access-Control-Allow-Origin': '*'
+                        },
                         onUploadProgress: (progressEvent) => {
                             const percentCompleted = Math.round((chunk + progressEvent.loaded / progressEvent.total) / totalChunks * 100);
                             progressBar.value = percentCompleted;
